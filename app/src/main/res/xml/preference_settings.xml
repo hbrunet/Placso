@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
-        android:key="webservice_preference"
-        android:title="URL Servicio Web"
-        android:summary="Ingrese las url del Servicio web."
-        android:defaultValue="@string/default_webservice"/>
+        android:key="ip_webservice_preference"
+        android:title="IP Servicio Web"
+        android:summary="Ingrese la dirección IP del Servicio web."
+        android:defaultValue=""/>
+
+    <EditTextPreference
+        android:key="puerto_webservice_preference"
+        android:title="Puerto Servicio Web"
+        android:summary="Ingrese el puerto del Servicio web."
+        android:defaultValue=""/>
 </PreferenceScreen>

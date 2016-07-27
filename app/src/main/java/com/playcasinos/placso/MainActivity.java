@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(this, SettingsActivity.class);
                 this.startActivity(i);
                 break;
+            case R.id.action_iniciar_sorteo:
+                break;
         }
 
         return super.onOptionsItemSelected(item);

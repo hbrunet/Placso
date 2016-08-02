@@ -5,7 +5,7 @@ package com.playcasinos.placso.serviceagents.proxies.sorteomodule;
  */
 public interface SorteoModuleService {
     Sorteo iniciarSorteoMovil(String mac);
-    Estado comprobarEstadoEntregas(String codigo); // devuelve clase estado
+    Estado comprobarEstadoEntregas(String codigo);
     void enviarDigitoSorteado(String codigo, int orden, int digito);
     void reiniciarSorteo(String codigo);
     void confirmarNumeroSorteado(String codigo, int numero);

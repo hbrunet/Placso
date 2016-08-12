@@ -1,5 +1,8 @@
 package com.playcasinos.placso.serviceagents.proxies.sorteomodule.impl;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Pair;
 
 import com.playcasinos.placso.serviceagents.proxies.sorteomodule.AsyncCallWS;
@@ -9,12 +12,25 @@ import com.playcasinos.placso.serviceagents.proxies.sorteomodule.SorteoModuleSer
 
 import org.ksoap2.serialization.SoapObject;
 
+import java.net.URI;
 import java.util.concurrent.ExecutionException;
 
 /**
  * Created by hbrunet on 02/08/2016.
  */
 public class SorteoModuleServiceImpl implements SorteoModuleService {
+    private final Context context;
+    private final SharedPreferences sharedPreferences;
+    private static final String NAME_SPACE = "http://SQR.IT.Contracts.Service";
+    private final String url;
+
+    public SorteoModuleServiceImpl(Context context)
+    {
+        this.context = context;
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        url = String.format("http://{0}:{1}/SQRService", sharedPreferences.getString("ip_webservice_preference", ""),
+                sharedPreferences.getString("puerto_webservice_preference", ""));
+    }
 
     @Override
     public Sorteo iniciarSorteoMovil(String mac) {

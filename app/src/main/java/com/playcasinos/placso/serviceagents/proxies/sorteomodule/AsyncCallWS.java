@@ -15,10 +15,12 @@ import java.security.InvalidParameterException;
  */
 public class AsyncCallWS extends AsyncTask<Pair<String, Object>, Void, SoapObject> {
 
-    private static final String SOAP_ACTION = "http://SQR.IT.Contracts.Service/IIdentifyCards/ReadCard";
-    private static final String METHOD_NAME = "ReadCard";
     private static final String NAMESPACE = "http://SQR.IT.Contracts.Service";
     private static String URL = "";
+
+    public AsyncCallWS(){
+
+    }
 
     @Override
     protected SoapObject doInBackground(Pair<String, Object>... params) {
@@ -48,6 +50,7 @@ public class AsyncCallWS extends AsyncTask<Pair<String, Object>, Void, SoapObjec
         } catch (Exception ex) {
 
         }
+
         return null;
     }
 }

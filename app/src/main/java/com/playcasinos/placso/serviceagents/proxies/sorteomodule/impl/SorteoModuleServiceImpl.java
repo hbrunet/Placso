@@ -37,8 +37,11 @@ public class SorteoModuleServiceImpl implements SorteoModuleService {
 
         try {
             AsyncCallWS asyncCallWS = new AsyncCallWS();
-            asyncCallWS.execute(new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ReadCard"),
-                    new Pair<String, Object>("methodName", "ReadCard"),
+            asyncCallWS.execute(
+                    new Pair<String, Object>("nameSpace", NAME_SPACE),
+                    new Pair<String, Object>("methodName", "IniciarSorteoMovil"),
+                    new Pair<String, Object>("url", url),
+                    new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/IniciarSorteoMovil"),
                     new Pair<String, Object>("mac", mac));
 
             SoapObject result = asyncCallWS.get();
@@ -56,8 +59,11 @@ public class SorteoModuleServiceImpl implements SorteoModuleService {
     public Estado comprobarEstadoEntregas(String codigo) {
         try {
             AsyncCallWS asyncCallWS = new AsyncCallWS();
-            asyncCallWS.execute(new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ReadCard"),
-                    new Pair<String, Object>("methodName", "ReadCard"),
+            asyncCallWS.execute(
+                    new Pair<String, Object>("nameSpace", NAME_SPACE),
+                    new Pair<String, Object>("methodName", "ComprobarEstadoEntregas"),
+                    new Pair<String, Object>("url", url),
+                    new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ComprobarEstadoEntregas"),
                     new Pair<String, Object>("codigo", codigo));
 
             SoapObject result = asyncCallWS.get();
@@ -74,8 +80,11 @@ public class SorteoModuleServiceImpl implements SorteoModuleService {
     @Override
     public void enviarDigitoSorteado(String codigo, int orden, int digito) {
         AsyncCallWS asyncCallWS = new AsyncCallWS();
-        asyncCallWS.execute(new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ReadCard"),
-                new Pair<String, Object>("methodName", "ReadCard"),
+        asyncCallWS.execute(
+                new Pair<String, Object>("nameSpace", NAME_SPACE),
+                new Pair<String, Object>("methodName", "EnviarDigitoSorteado"),
+                new Pair<String, Object>("url", url),
+                new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/EnviarDigitoSorteado"),
                 new Pair<String, Object>("codigo", codigo),
                 new Pair<String, Object>("orden", orden),
                 new Pair<String, Object>("digito", digito));
@@ -84,16 +93,22 @@ public class SorteoModuleServiceImpl implements SorteoModuleService {
     @Override
     public void reiniciarSorteo(String codigo) {
         AsyncCallWS asyncCallWS = new AsyncCallWS();
-        asyncCallWS.execute(new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ReadCard"),
-                new Pair<String, Object>("methodName", "ReadCard"),
+        asyncCallWS.execute(
+                new Pair<String, Object>("nameSpace", NAME_SPACE),
+                new Pair<String, Object>("methodName", "ReiniciarSorteo"),
+                new Pair<String, Object>("url", url),
+                new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ReiniciarSorteo"),
                 new Pair<String, Object>("codigo", codigo));
     }
 
     @Override
     public void confirmarNumeroSorteado(String codigo, int numero) {
         AsyncCallWS asyncCallWS = new AsyncCallWS();
-        asyncCallWS.execute(new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ReadCard"),
-                new Pair<String, Object>("methodName", "ReadCard"),
+        asyncCallWS.execute(
+                new Pair<String, Object>("nameSpace", NAME_SPACE),
+                new Pair<String, Object>("methodName", "ConfirmarNumeroSorteado"),
+                new Pair<String, Object>("url", url),
+                new Pair<String, Object>("soapAction", "http://SQR.IT.Contracts.Service/IIdentifyCards/ConfirmarNumeroSorteado"),
                 new Pair<String, Object>("codigo", codigo),
                 new Pair<String, Object>("numero", numero));
     }

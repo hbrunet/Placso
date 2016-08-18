@@ -41,8 +41,8 @@ public class AsyncCallWS extends AsyncTask<Pair<String, Object>, Void, SoapObjec
             SoapObject response = (SoapObject) soapEnvelope.getResponse();
             return response;
 
-        } catch (Exception ex) {
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return null;

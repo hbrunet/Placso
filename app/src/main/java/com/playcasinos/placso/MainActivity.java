@@ -10,7 +10,17 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.playcasinos.placso.serviceagents.proxies.sorteomodule.SorteoModuleService;
+import com.playcasinos.placso.serviceagents.proxies.sorteomodule.impl.SorteoModuleServiceImpl;
+
 public class MainActivity extends AppCompatActivity {
+
+    private final SorteoModuleService sorteoModuleService;
+
+    public MainActivity(){
+        super();
+        sorteoModuleService = new SorteoModuleServiceImpl(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        sorteoModuleService.iniciarSorteoMovil("mac");
     }
 
     @Override

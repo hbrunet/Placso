@@ -45,8 +45,7 @@ public class SorteoModuleServiceImpl implements SorteoModuleService {
                     new Pair<String, Object>("mac", mac));
 
             SoapObject result = asyncCallWS.get();
-            Sorteo sorteo = new Sorteo((int)result.getProperty("Cantidad"), result.getPropertyAsString("Codigo"));
-            return  sorteo;
+            return new Sorteo((int)result.getProperty("Cantidad"), result.getPropertyAsString("Codigo"));
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -67,8 +66,7 @@ public class SorteoModuleServiceImpl implements SorteoModuleService {
                     new Pair<String, Object>("codigo", codigo));
 
             SoapObject result = asyncCallWS.get();
-            Estado estado = new Estado((boolean)result.getProperty("Habilitado"), (String[])result.getProperty("Salas"));
-            return  estado;
+            return new Estado((boolean)result.getProperty("Habilitado"), (String[])result.getProperty("Salas"));
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

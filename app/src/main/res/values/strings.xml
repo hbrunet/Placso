@@ -3,4 +3,5 @@
     <string name="action_settings">Ajustes</string>
     <string name="default_webservice">http://sqr.homeip.net:8733/SQRService</string>
     <string name="action_iniciar_sorteo">Iniciar Sorteo</string>
+    <string name="title_activity_sorteo">SorteoActivity</string>
 </resources>
